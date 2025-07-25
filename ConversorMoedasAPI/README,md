@@ -1,0 +1,33 @@
+# Conversor de Moedas com API em Java
+
+## 🔍 Como o projeto funciona:
+
+Este projeto é um conversor de moedas que utiliza a API pública da ExchangeRate-API para obter as cotações em tempo real. O usuário interage com o programa via terminal, escolhe a conversão desejada entre seis opções (como dólar para real, euro para dólar, etc.), digita o valor e recebe o resultado convertido. Cada conversão realizada também é registrada em um arquivo chamado "historico_conversoes.txt", contendo data, hora, tipo de conversão e valores envolvidos.
+
+## ⚙️ Funcionamento passo a passo:
+
+1. O programa exibe um menu com 6 opções de conversão.
+2. O usuário seleciona a opção desejada.
+3. Em seguida, insere o valor a ser convertido.
+4. O programa faz uma requisição HTTP para a API: `https://v6.exchangerate-api.com/v6/83c6d2be0ee40f2decb41c60/latest/USD`.
+5. Os dados retornam em JSON e são tratados usando a biblioteca GSON.
+6. Com base nas taxas de câmbio extraídas do JSON, a conversão é feita.
+7. O resultado é exibido no console.
+8. A conversão é salva no histórico em um arquivo `.txt`.
+
+## 🔐 API utilizada:
+
+- **API:** ExchangeRate-API (https://www.exchangerate-api.com/)
+- **Chave usada:** 83c6d2be0ee40f2decb41c60
+- **Formato de resposta:** JSON contendo todas as taxas de câmbio com base no dólar americano (USD).
+- **Método HTTP usado:** GET
+
+## ⚠️ Maior dificuldade enfrentada:
+
+A principal dificuldade foi o tratamento da resposta da API em JSON e a extração precisa das taxas de câmbio relevantes para cada tipo de conversão. Também exigiu atenção ao lidar com a conversão entre moedas que não estão diretamente ligadas ao dólar, como Euro para Real, onde foi necessário fazer conversões intermediárias (ex: EUR → USD → BRL). Além disso, configurar corretamente o ambiente no IntelliJ e integrar a biblioteca GSON exigiu passos manuais que podem ser complicados para quem está iniciando.
+
+## ✅ Requisitos:
+
+- Java 8 ou superior
+- Biblioteca GSON adicionada ao projeto
+- Conexão com a internet ativa (para acessar a API)
